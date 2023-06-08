@@ -9,8 +9,8 @@
 
 [Problem]
   type = FEProblem # This is the "normal" type of Finite Element Problem in MOOSE
-  coord_type = RZ # Axisymmetric RZ
-  rz_coord_axis = X # Which axis the symmetry is around
+  Mesh/coord_type = RZ # Axisymmetric RZ
+  Mesh/rz_coord_axis = X # Which axis the symmetry is around
 []
 
 [Variables]
@@ -21,7 +21,7 @@
 
 [Kernels]
   [diffusion]
-    type = ADDiffusion # Laplacian operator
+    type = DarcyPressure # Zero-gravity, divergence-free form of Darcy's law
     variable = pressure # Operate on the "pressure" variable from above
   []
 []
